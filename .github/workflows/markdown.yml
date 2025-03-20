@@ -21,6 +21,9 @@ jobs:
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v4
+      with:
+        ref: ${{ github.event.pull_request.head.sha }}
+        #ref: "refs/pull/${{ github.event.number }}/merge"  # it's okay to pull the user's changes: we just scan md's
 
     - name: Get changed markdown files
       id: changed-markdown-files
@@ -46,6 +49,9 @@ jobs:
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v4
+      with:
+        ref: ${{ github.event.pull_request.head.sha }}
+        #ref: "refs/pull/${{ github.event.number }}/merge"  # it's okay to pull the user's changes: we just scan md's
 
     - name: Run markdown linter
       continue-on-error: true
