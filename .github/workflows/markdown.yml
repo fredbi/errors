@@ -53,7 +53,7 @@ jobs:
       uses: docker://avtodev/markdown-lint:v1.5
       with:
         config: ./.github/.markdownlint.yml
-        args: ${{ needs.markdown-changed.outputs.all_changed_files }}
+        args: "${{ needs.markdown-changed.outputs.all_changed_files }}"
         output: '${{ env.lintreport }}'
 
     - name: Find previous PR comment
